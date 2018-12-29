@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+import gulp from 'gulp'
 
 /* top level functions
     gulp.task = define tasks
@@ -7,7 +7,13 @@ const gulp = require('gulp');
     gulp.watch = watch files for changes
 */
 
-// Log message
+// simple single step task does not require 
+gulp.task('sayhey', function(done){
+    return console.log("say hey"),
+    done()
+})
+
+// multi-step tasks require gulp.series and gulp.parallel
 function message1(done){
     return (
         gulp.task(
@@ -16,7 +22,6 @@ function message1(done){
         )
     )
 }
-
 function message2(done){
     return (
         gulp.task(
@@ -33,4 +38,3 @@ gulp.task(
         message2
     )
 );
-
