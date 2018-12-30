@@ -97,3 +97,5 @@ To be added next.
 [The Complete-ish Guide to Upgrading to Gulp 4](https://www.joezimjs.com/javascript/complete-guide-upgrading-gulp-4/)
 
 [Switching to Gulp 4](https://www.webstoemp.com/blog/switching-to-gulp4/)
+
+[Gulp 4.0 Upgrade Guide](https://zzz.buzz/2016/11/19/gulp-4-0-upgrade-guide/)
