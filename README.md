@@ -1,7 +1,7 @@
 
 ## Overview
 
-I recently forked a [boilerplate web app project](https://github.com/jh3y/gulp-boilerplate) that uses Gulp 4 and quickly noticed that Gulp 4 looks a lot different than the prior version. Gulp 4 is now [the default version of Gulp](https://medium.com/gulpjs/version-4-now-default-92c6cd4beb45) and there is of course [API documentation](https://gulpjs.org/API.html) and a ["quick start" tutorial](https://gulpjs.com/docs/en/getting-started/quick-start) but if you are used to Gulp 3, neither of these resources will give you a hands-on approach to reconfiguring your own understanding of this streaming build system for NodeJS projects.  There is also a [recent blog post](https://www.webstoemp.com/blog/switching-to-gulp4/) and [one from 2016]((https://www.joezimjs.com/javascript/complete-guide-upgrading-gulp-4/)) about Gulp 4 but they don't seem structured in a way that reflects the questions you may have trying to parse the difference. So this project seeks to come up with something that does, through a series of branches.
+I recently forked a [boilerplate web app project](https://github.com/jh3y/gulp-boilerplate) that uses Gulp 4 and quickly noticed that Gulp 4 looks somewhat different than the prior version. Gulp 4 is now [the default version](https://medium.com/gulpjs/version-4-now-default-92c6cd4beb45) and there is of course [API documentation](https://gulpjs.org/API.html) and a ["quick start" tutorial](https://gulpjs.com/docs/en/getting-started/quick-start) but if you are used to Gulp 3, neither of these resources will give you a hands-on approach to reconfiguring your own understanding of this streaming build system for NodeJS projects.  There is also a [recent blog post](https://www.webstoemp.com/blog/switching-to-gulp4/) and [one from 2016]((https://www.joezimjs.com/javascript/complete-guide-upgrading-gulp-4/)) about Gulp 4 but they don't seem structured in a way that reflects the questions you may have trying to parse the difference. So this project seeks to come up with something that does, through a series of branches.
 
 ## Project branches
 
@@ -90,7 +90,19 @@ Now that we have Babel set up, and to shorten up our gulpfile, let's move our gu
 
 ### Branch: styles
 
-To be added next.
+Using a [module for adding Sass to a Gulp project](https://www.npmjs.com/package/gulp-sass), let's build a task that ingests a .scss source file and emits from it the contents of a .css distribution file. The first step is to add the necessary modules:
+
+```
+$ npm install node-sass gulp-sass --save-dev
+```
+
+Now, create new folders at root for source - `(./src)` - and for build/output - `(./dist)` - files. Create a simple default.scss file in the source folder, in the `/components/styles` subfolder and add a few variable-driven styles. Next, create an `/assets/stylesheets` subfolder in the source folder; this will be the destination of the task that generates a css file from the Sass file. 
+
+Lastly, create a new file - `styles.js` - in the build-tasks folder where you write a new Gulp task called `css.` Don't forget to import this new task into `gulpfile.babel.js.` Now, run `$ gulp css` from the command line and you will see that it does just what it is supposed to do - create a css file in the targeted `dist/assets/stylesheets` subfolder from the sourced Sass file in the `src/assets/components/styles` subfolder. (At this point, the task is not set up to merge multiple source (.scss) files into a single output (.css) file but we could add this later.)
+
+### Branch: scripts
+
+Do this next. 
 
 #### Sources
 
