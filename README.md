@@ -5,11 +5,11 @@ I recently forked a [boilerplate web app project](https://github.com/jh3y/gulp-b
 
 ## Project branches
 
-master - roll up everything into this one  
-babel - ES6+ support  
-styles - CSS preprocessors (future)  
-scripts - Javascript (future)  
-upandrunning - Live reload, etc. (future) 
+> **master** - latest merged branch  
+> **babel** - ES6+ support  
+> **styles** - Sass (CSS preprocessor)  
+> **scripts** - Javascript (future)  
+> **upandrunning** - Live reload, etc. (future) 
 
 ### Initial commit
 
