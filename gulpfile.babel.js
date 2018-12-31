@@ -1,5 +1,7 @@
 import gulp from 'gulp'
 
+var buildTasks = "./build-buildTasks"
+
 /* top level functions
     gulp.task = define tasks
     gulp.src = point to files to use
@@ -11,3 +13,5 @@ import {
     sayhey,
     messages,
   } from './build-tasks/messages'
+
+import { styles } from './build-tasks//styles'
