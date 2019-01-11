@@ -1,15 +1,17 @@
 
 ## Overview
 
-I recently forked a [boilerplate web app project](https://github.com/jh3y/gulp-boilerplate) that uses Gulp 4 and quickly noticed that Gulp 4 looks somewhat different than the prior version. Gulp 4 is now [the default version](https://medium.com/gulpjs/version-4-now-default-92c6cd4beb45) and there is of course [API documentation](https://gulpjs.org/API.html) and a ["quick start" tutorial](https://gulpjs.com/docs/en/getting-started/quick-start) but if you are used to Gulp 3, neither of these resources will give you a hands-on approach to reconfiguring your own understanding of this streaming build system for NodeJS projects.  There is also a [recent blog post](https://www.webstoemp.com/blog/switching-to-gulp4/) and [one from 2016]((https://www.joezimjs.com/javascript/complete-guide-upgrading-gulp-4/)) about Gulp 4 but they don't seem structured in a way that reflects the questions you may have trying to parse the difference. So this project seeks to come up with something that does, through a series of branches.
+I recently forked a [boilerplate web app](https://github.com/jh3y/gulp-boilerplate) that uses Gulp 4 which I wanted to adapt to a Vue project, but quickly noticed it looks a fair bit  different than a Gulp 3 project! Although [Webpack]() is now bundled into [Vue CLI 3](https://cli.vuejs.org/), as a task runner, Gulp is [still useful](https://vuejsfeed.com/blog/webpack-vs-gulp-a-comparison) as a "toolkit for automating painful or time-consuming tasks in your development workflow." So let's take a  look at setting up a Vue project with Gulp 4, which is now [the default version](https://medium.com/gulpjs/version-4-now-default-92c6cd4beb45).
 
 ## Project branches
 
-> **master** - latest merged branch  
-> **babel** - ES6+ support  
-> **styles** - Sass (CSS preprocessor)  
-> **scripts** - Javascript (future)  
-> **upandrunning** - Live reload, etc. (future) 
+This project is designed to walk through a Gulp 4-VueJS-Sass project through a series of branches.
+
+> **master** - merging latest version of all branches  
+> **babel** - adding ES6+ support  
+> **styles** - adding [Sass](https://sass-lang.com/) (CSS preprocessor) and [Bootstrap 4 CSS](https://getbootstrap.com/docs/4.0/getting-started/theming/#importing) using built-in Sass variable 
+> **scripts** - adds: [VueJS](https://vuejs.org/) ("The Progressive JavaScript Framework") and [Bootstrap 4 Javascript](https://getbootstrap.com/docs/4.2/getting-started/javascript/)
+> **upandrunning** - adds: Live reload, etc. (future) 
 
 ### Initial commit
 
@@ -90,21 +92,55 @@ Now that we have Babel set up, and to shorten up our gulpfile, let's move our gu
 
 ### Branch: styles
 
-Using a [module for adding Sass to a Gulp project](https://www.npmjs.com/package/gulp-sass), let's build a task that ingests a .scss source file and emits from it the contents of a .css distribution file. The first step is to add the necessary modules:
+Add a [Sass module for a Gulp project](https://www.npmjs.com/package/gulp-sass) so that a Gulp task can ingest a .scss source file and emit from it the contents of a .css distribution file. 
 
 ```
 $ npm install node-sass gulp-sass --save-dev
 ```
 
-Now, create new folders at root for source - `(./src)` - and for build/output - `(./dist)` - files. Create a simple default.scss file in the source folder, in the `/components/styles` subfolder and add a few variable-driven styles. Next, create an `/assets/stylesheets` subfolder in the source folder; this will be the destination of the task that generates a css file from the Sass file. 
+Then do the following:
 
-Lastly, create a new file - `styles.js` - in the build-tasks folder where you write a new Gulp task called `css.` Don't forget to import this new task into `gulpfile.babel.js.` Now, run `$ gulp css` from the command line and you will see that it does just what it is supposed to do - create a css file in the targeted `dist/assets/stylesheets` subfolder from the sourced Sass file in the `src/assets/components/styles` subfolder. (At this point, the task is not set up to merge multiple source (.scss) files into a single output (.css) file but we could add this later.)
+1. add root-level folders for source - `(./src)` - and build/output - `(./dist)` - files. 
+2. Create a simple default.scss file in the source folder, in the `/components/styles` subfolder and add a few variable-driven styles. 
+3. Create an `/assets/stylesheets` subfolder in the source folder; this will be the destination of the task that generates a css file from the Sass file. 
+4. Create a new file - `styles.js` - in the build-tasks folder where you write a new Gulp task called `css.` Don't forget to import this new task into `gulpfile.babel.js.` 
+
+To make sure it creates a css file in `dist/assets/stylesheets` subfolder from the sourced Sass file in the `src/assets/components/styles` subfolder, run `$ gulp css` from a CLI. 
+
+At this point, the Gulp function simply ingests and outputs --
+
+```
+    return gulp
+        .src(sourceDir + "/assets/components/styles/*.scss")
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(buildCSS))
+    return done()
+```
+
+-- but let's add an [autprefixer](https://zellwk.com/blog/compass-vs-autoprefixer/) to "[comb] through compiled CSS files to add or remove vendor prefixes like `-webkit` and `-moz` after checking the code against [caniuse.com](https://caniuse.com)." Start by installing the module (`npm install --save-dev gulp-autoprefixer`), then add a pipe function to the task:
+
+```
+       .pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+```
+
+Lastly, let's add Bootstrap 4. We will do this via Gulp so that we can use Bootstrap 4 Sass, as opposed to "straight up CSS" (which is what you would get using a CDN), to be able to add Sass customizations (see [this article](https://coursetro.com/posts/design/72/Installing-Bootstrap-4-Tutorial) on that difference).
+
+
+
+At this point, the task is not set up to merge multiple source (.scss) files into a single output (.css) file but we could add this later.)
 
 ### Branch: scripts
 
 Do this next. 
 
 #### Sources
+
+[Gulp 4 API documentation](https://gulpjs.org/API.html)
+
+[Gulp 4 "quick start" tutorial](https://gulpjs.com/docs/en/getting-started/quick-start) 
 
 [The Complete-ish Guide to Upgrading to Gulp 4](https://www.joezimjs.com/javascript/complete-guide-upgrading-gulp-4/)
 
