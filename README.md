@@ -5,7 +5,7 @@ See the wiki page about this branch for more details.
 
 ## Branches
 
-This project walks through the process of building Bootstrap 4 / Vue.js project using Gulp 4.
+This project walks through the process of building a Bootstrap 4 / Vue.js project using Gulp 4.
 
 > **master** - merge all branches  
 > **babel** - add ES6+ support  
