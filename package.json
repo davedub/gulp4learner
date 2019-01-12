@@ -1,8 +1,12 @@
 {
   "name": "gulp4learner",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Gulp 4 exploratory project",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davedub/gulp4learner.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,12 +19,23 @@
     "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^4.2.1",
     "bootstrap-4-stylus": "^1.0.5",
+    "css-loader": "^2.1.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cli": "^2.0.1",
     "gulp-sass": "^4.0.2",
     "jquery": "^3.3.1",
     "node-sass": "^4.11.0",
-    "tether": "^1.4.5"
+    "tether": "^1.4.5",
+    "vue-hot-reload-api": "^2.3.1",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^15.5.1",
+    "webpack": "^4.28.4"
+  },
+  "dependencies": {
+    "popper.js": "^1.14.6",
+    "vue": "^2.5.22",
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.0.2"
   }
 }

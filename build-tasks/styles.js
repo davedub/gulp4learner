@@ -11,8 +11,8 @@ var sourceDir = './src',
 function css(done) {
     return (
         gulp.task(
-            gulp.src(sourceDir + '/assets/components/main.scss')
-            .pipe(
+             gulp.src(sourceDir + '/assets/styles/main.scss')
+           .pipe(
                 autoprefixer({
                     browsers: ['last 2 versions'],
                     cascade: false,

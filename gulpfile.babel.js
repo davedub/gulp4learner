@@ -12,6 +12,12 @@ var buildTasks = "./build-buildTasks"
 import {
     sayhey,
     messages,
-  } from './build-tasks/messages'
+} from './build-tasks/messages'
 
-import { css } from './build-tasks/styles'
+import {
+    css
+} from './build-tasks/styles'
+
+import {
+    buildindex
+} from './build-tasks/buildindex'
