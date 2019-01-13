@@ -1,7 +1,8 @@
-import gulp from 'gulp'
+var gulp = require("gulp");
+// import gulp from 'gulp'
 
 // tasks that use multiple functions require gulp.series or gulp.parallel
-function message1(done){
+function message1(done) {
     return (
         gulp.task(
             console.log('Gulp is running'),
@@ -9,7 +10,8 @@ function message1(done){
         )
     )
 }
-function message2(done){
+
+function message2(done) {
     return (
         gulp.task(
             console.log('Go catch it'),
@@ -18,9 +20,9 @@ function message2(done){
     )
 }
 
-gulp.task("sayhey", function(done){
+gulp.task("sayhey", function (done) {
     return console.log("say hey"),
-    done()
+        done()
 })
 
 gulp.task("messages", gulp.series(

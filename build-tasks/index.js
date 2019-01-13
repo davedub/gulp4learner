@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 
-function buildindex(done) {
+function index(done) {
     return (
         gulp.task(
             gulp.src('./src/index.html')
@@ -10,4 +10,4 @@ function buildindex(done) {
     )
 }
 
-gulp.task('buildindex', buildindex);
+gulp.task('index', index);

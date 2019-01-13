@@ -5,7 +5,6 @@ import Router from 'vue-router'
 import App from './components/App.vue'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
-import Quote from './components/Quote.vue'
 
 // Install plugins
 Vue.use(Router)
