@@ -1,7 +1,12 @@
-import gulp from 'gulp';
-import sass from 'gulp-sass';
-import autoprefixer from 'gulp-autoprefixer';
-import b4s from 'bootstrap-4-stylus';
+var gulp = require("gulp");
+var sass = require("gulp-sass");
+var autoprefixer = require("gulp-autoprefixer");
+var b4s = require("bootstrap-4-stylus");
+
+// import gulp from 'gulp'
+// import sass from 'gulp-sass'
+// import autoprefixer from 'gulp-autoprefixer'
+// import b4s from 'bootstrap-4-stylus'
 
 var sourceDir = './src',
     buildDir = './dist',
@@ -11,7 +16,7 @@ var sourceDir = './src',
 function css(done) {
     return (
         gulp.task(
-            gulp.src(sourceDir + '/assets/components/main.scss')
+            gulp.src(sourceDir + '/assets/styles/main.scss')
             .pipe(
                 autoprefixer({
                     browsers: ['last 2 versions'],

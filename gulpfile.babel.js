@@ -1,17 +1,15 @@
-import gulp from 'gulp'
+'use strict';
 
-var buildTasks = "./build-buildTasks"
-
-/* top level functions
-    gulp.task = define tasks
-    gulp.src = point to files to use
-    gulp.dest = point to folder to output
-    gulp.watch = watch files for changes
-*/
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const webpackconfig = require('./webpack.config.js');
+const webpackstream = require('webpack-stream');
+const babelregister = require('@babel/register');
 
 import {
     sayhey,
-    messages,
-  } from './build-tasks/messages'
-
-import { css } from './build-tasks/styles'
+    messages
+} from './build-tasks/messages';
+import css from './build-tasks/styles';
+import webpack from './build-tasks/webpack';
+import index from './build-tasks/index';
