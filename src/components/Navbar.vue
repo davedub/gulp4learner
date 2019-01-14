@@ -1,7 +1,7 @@
 <script>
-  export default {
-    name: "Navbar"
-  }
+export default {
+  name: "Navbar"
+};
 </script>
 
 <template>
@@ -10,15 +10,16 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text">Vue Webgulp</li>
-          <li><router-link to="home">Home</router-link></li>
-          <li><router-link to="about">About</router-link></li>
-          <li><router-link to="quote">Quote</router-link></li>
+          <li>
+            <router-link to="home">Home</router-link>
+          </li>
+          <li>
+            <router-link to="about">About</router-link>
+          </li>
         </ul>
       </div>
       <div class="top-bar-right">
-        <ul class="menu">
-
-        </ul>
+        <ul class="menu"></ul>
       </div>
     </div>
   </div>
