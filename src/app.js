@@ -21,11 +21,6 @@ let routes = [{
         component: About
     },
     {
-        path: '/quote',
-        name: 'quote',
-        component: Quote
-    },
-    {
         path: '*',
         redirect: '/home'
     }
@@ -38,6 +33,7 @@ let router = new Router({
 
 // Start up our app
 new Vue({
+    el: '#app',
     router: router,
     render: h => h(App)
 }).$mount('#app')

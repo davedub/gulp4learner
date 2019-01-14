@@ -1,11 +1,15 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Helvetica,
+sans-serif;
 $primary-color: #3efac3;
+$main-color: #6d1;
 $default-margin: 20% 20%;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
+  background-color: $main-color;
 }
+
 .container {
   margin: $default-margin;
+  background-color: $primary-color;
 }

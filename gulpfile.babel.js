@@ -2,9 +2,9 @@
 
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const webpackconfig = require('./webpack.config.js');
-const webpackstream = require('webpack-stream');
-const babelregister = require('@babel/register');
+const webpackconfig = require("./webpack.config.js");
+const webpackstream = require("webpack-stream");
+const babelregister = require("@babel/register");
 
 import {
     sayhey,

@@ -5,12 +5,11 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
+    mode: 'none',
     entry: [
-        './src/main.js'
+        './src/app.js'
     ],
     output: {
-        path: "/dist/js",
-        publicPath: "/dist/",
         filename: "app.js"
     },
     watch: true,
@@ -22,11 +21,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
+                use: ['style', 'css', 'sass']
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                use: 'vue-loader'
             }
         ]
     },

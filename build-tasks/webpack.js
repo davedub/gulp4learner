@@ -5,7 +5,7 @@ var connect = require("gulp-connect");
 function webpack(done) {
     return (
         gulp.task(
-            gulp.src('src/main.js')
+            gulp.src('src/app.js')
             .pipe(webpackstream(require('./../webpack.config.js')))
             .pipe(gulp.dest('dist/assets/scripts/'))
             .pipe(connect.reload()),
